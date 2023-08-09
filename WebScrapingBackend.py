@@ -9,9 +9,9 @@ import re
 #Declaración de variables
 a,b = 'áéíóúü','aeiouu'
 transl = str.maketrans(a,b)
-keyword = 'Daniel Mendez' #Entrada
+keyword = 'Aldo Luévano' #Entrada
 keyword = keyword.translate(transl)
-fuentes = list()
+fuentes = list()        #Salida
 textoCompleto = list()
 textoLimpio = list()    #Salida
 
@@ -24,7 +24,7 @@ def Captura():
     soup = BeautifulSoup(html, 'html.parser')
     textoExtraido = soup.get_text().split('\n')
 
-    textoLimpio.append("Fuente: "+driver.current_url+"\n")
+    fuentes.append("Fuente: "+driver.current_url+"\n")
     for i in range(0,len(textoExtraido)):
         if re.search(keyword,textoExtraido[i]):
             textoLimpio.append(textoExtraido[i])
